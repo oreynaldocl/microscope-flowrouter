@@ -1,9 +1,8 @@
-Template.postPage.onCreated(()=>{
-  let self = Template.instance();
-  self.autorun(()=>{
+Template.postPage.onCreated(function(){
+  this.autorun(()=>{
     let params = JSRouter.getParams('_id');
-    self.singlePostSubs = self.subscribe('singlePost', params._id);
-    self.commentsSubs = self.subscribe('comments', params._id);
+    this.singlePostSubs = this.subscribe('singlePost', params._id);
+    this.commentsSubs = this.subscribe('comments', params._id);
   });
 });
 

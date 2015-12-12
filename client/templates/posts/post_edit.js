@@ -1,7 +1,7 @@
 Template.postEdit.onCreated(function() {
   Session.set('postEditErrors', {});
-  let self = Template.instance();
-  self.autorun(()=>{
+  let self = this;
+  self.autorun(function(){
     let params = JSRouter.getParams('_id');
     self.singlePostSubs = self.subscribe('singlePost', params._id);
   });

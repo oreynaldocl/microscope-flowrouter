@@ -1,23 +1,23 @@
 const increment = 5;
-Template.postsList.onCreated(() => {
-  let self = Template.instance();
+Template.postsList.onCreated(function(){
+  let self = this;
 
-  self.postsLimit = () => {
+  self.postsLimit = function() {
     let params = JSRouter.getParams('postsLimit');
     return parseInt(params.postsLimit) || increment;
   };
 
-  self.getNameNextPath = () => {
+  self.getNameNextPath = function() {
     let routeName = JSRouter.getName();
     return (routeName === 'home')? 'newPosts' : routeName;
   };
 
-  self.nextPath = () => {
+  self.nextPath = function() {
     let postsLimit = self.postsLimit() + increment;
     return JSRouter.getPath( self.getNameNextPath(), {postsLimit});
   };
 
-  self.findOptions = () => {
+  self.findOptions = function() {
     let routeName = JSRouter.getName(),
       sort = {submitted: -1, _id: -1};
     if (routeName === 'bestPosts') {
@@ -26,11 +26,11 @@ Template.postsList.onCreated(() => {
     return {sort: sort, limit: self.postsLimit()};
   };
 
-  self.getPostsCursor = () => {
+  self.getPostsCursor = function() {
     return Posts.find({}, self.findOptions());
   };
 
-  self.autorun(() => {
+  self.autorun(function() {
     self.postSubscribe = self.subscribe('posts', self.findOptions());
   });
 });
