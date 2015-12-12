@@ -31,7 +31,7 @@ Template.postEdit.events({
         // display the error to the user
         throwError(error.reason);
       } else {
-        Router.go('postPage', {_id: currentPostId});
+        JSRouter.go('postPage', {_id: currentPostId});
       }
     });
   },
@@ -42,7 +42,7 @@ Template.postEdit.events({
     if (confirm("Delete this post?")) {
       var currentPostId = this._id;
       Posts.remove(currentPostId);
-      Router.go('home');
+      JSRouter.go('home');
     }
   }
 });
