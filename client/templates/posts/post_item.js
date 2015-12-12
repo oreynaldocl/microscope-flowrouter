@@ -14,6 +14,9 @@ Template.postItem.helpers({
     } else {
       return 'disabled';
     }
+  },
+  postData: function() {
+    return {_id: this._id};
   }
 });
 
