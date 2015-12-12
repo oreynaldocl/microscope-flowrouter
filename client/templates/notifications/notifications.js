@@ -1,3 +1,10 @@
+Template.notifications.onCreated(() =>{
+  let self = Template.instance();
+  self.autorun(() => {
+    self.subscribe('notifications');
+  });
+});
+
 Template.notifications.helpers({
   notifications: function() {
     return Notifications.find({userId: Meteor.userId(), read: false});

@@ -17,6 +17,8 @@ Template.registerHelper('getPath', function (route) {
   if (!routeName) {
     console.log('There is no path name check your code');
   }
+
   var path = JSRouter.getPath(routeName, data, options);
   return path;
 });
+

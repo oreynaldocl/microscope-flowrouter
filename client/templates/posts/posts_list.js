@@ -26,6 +26,10 @@ Template.postsList.onCreated(() => {
     return {sort: sort, limit: self.postsLimit()};
   };
 
+  self.getPostsCursor = () => {
+    return Posts.find({}, self.findOptions());
+  };
+
   self.autorun(() => {
     self.postSubscribe = self.subscribe('posts', self.findOptions());
   });
@@ -34,12 +38,17 @@ Template.postsList.onCreated(() => {
 Template.postsList.helpers({
   posts () {
     let tpl = Template.instance();
-    return Posts.find({}, tpl.findOptions());
+    return tpl.getPostsCursor();
   },
 
   ready () {
     let tpl = Template.instance();
     return tpl.postSubscribe.ready();
+  },
+
+  hasNext() {
+    let tpl = Template.instance();
+    return tpl.getPostsCursor().count() === tpl.postsLimit();
   },
 
   nextPath () {

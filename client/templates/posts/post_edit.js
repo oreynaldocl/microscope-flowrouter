@@ -1,11 +1,34 @@
 Template.postEdit.onCreated(function() {
   Session.set('postEditErrors', {});
+  let self = Template.instance();
+  self.autorun(()=>{
+    let params = JSRouter.getParams('_id');
+    self.singlePostSubs = self.subscribe('singlePost', params._id);
+  });
 });
 
 Template.postEdit.helpers({
+  isReady() {
+    let tpl = Template.instance(),
+      params = JSRouter.getParams('_id'),
+      post = Posts.findOne(params._id);
+    return tpl.singlePostSubs.ready() && post && post.userId === Meteor.userId();
+  },
+
+  isLoading() {
+    let tpl = Template.instance();
+    return !tpl.singlePostSubs.ready();
+  },
+
+  currentPost() {
+    let params = JSRouter.getParams('_id');
+    return Posts.findOne(params._id);
+  },
+
   errorMessage: function(field) {
     return Session.get('postEditErrors')[field];
   },
+
   errorClass: function (field) {
     return !!Session.get('postEditErrors')[field] ? 'has-error' : '';
   }

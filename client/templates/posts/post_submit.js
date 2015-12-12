@@ -3,16 +3,22 @@ Template.postSubmit.onCreated(function() {
 });
 
 Template.postSubmit.helpers({
-  errorMessage: function(field) {
+  isAllowed() {
+    return Meteor.userId();
+  },
+  isLogging() {
+    return Meteor.loggingIn();
+  },
+  errorMessage(field) {
     return Session.get('postSubmitErrors')[field];
   },
-  errorClass: function (field) {
+  errorClass(field) {
     return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
   }
 });
 
 Template.postSubmit.events({
-  'submit form': function(e) {
+  'submit form'(e) {
     e.preventDefault();
     
     var post = {
