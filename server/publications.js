@@ -18,6 +18,5 @@ Meteor.publish('comments', (postId) => {
 });
 
 Meteor.publish('notifications', function(){
-  console.log((this.userId), Notifications.find({userId: this.userId, read: false}).count());
   return Notifications.find({userId: this.userId, read: false});
 });

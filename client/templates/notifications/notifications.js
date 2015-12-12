@@ -1,7 +1,6 @@
 Template.notifications.onCreated(function(){
   let self = this;
   self.autorun(function() {
-    console.log(Meteor.userId());
     if (Meteor.userId()) {
       self.subscribe('notifications');
     }
