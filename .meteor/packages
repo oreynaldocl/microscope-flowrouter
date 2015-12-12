@@ -18,10 +18,11 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 twbs:bootstrap
 underscore
-iron:router@1.0.0-rc.1
 sacha:spin
 accounts-password
 ian:accounts-ui-bootstrap-3
 check
 audit-argument-checks
 meteorhacks:fast-render
+kadira:blaze-layout
+kadira:flow-router

@@ -16,6 +16,8 @@ caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.1.0
 chuangbo:cookie@1.1.0
+coffeescript@1.0.11
+cosmos:browserify@0.9.2
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -36,15 +38,9 @@ htmljs@1.0.5
 http@1.1.1
 ian:accounts-ui-bootstrap-3@1.2.84
 id-map@1.0.4
-iron:controller@1.0.12
-iron:core@1.0.11
-iron:dynamic-template@1.0.12
-iron:layout@1.0.12
-iron:location@1.0.11
-iron:middleware-stack@1.0.11
-iron:router@1.0.12
-iron:url@1.0.11
 jquery@1.11.4
+kadira:blaze-layout@2.3.0
+kadira:flow-router@2.10.0
 launch-screen@1.0.4
 livedata@1.0.15
 localstorage@1.0.5
