@@ -1,8 +1,8 @@
 Meteor.publish('posts', (options = {}) => {
-  //check(options, {
-  //  sort: Object,
-  //  limit: Number
-  //});
+  check(options, {
+    sort: Object,
+    limit: Number
+  });
   return Posts.find({}, options);
 });
 
