@@ -3,22 +3,19 @@
  * @param {Object} data Data params.
  * @param {Object} options It can have {query: Object, hash:'String'}
  * */
-Template.registerHelper('getPath', function (route) {
-  var data = {},
-    options = {},
-    routeName;
-  if (_.isString(route)) {
-    routeName = route;
-  } else {
-    routeName = route.hash.route;
-    data = route.hash.data || {};
-    options = route.hash.options || {};
-  }
+Template.registerHelper('getPath', function (routeName, params) {
+  let data = {},
+    query = {},
+    path = '';
+
+  check(routeName, String);
+  data = params.hash.data || {};
+  query = params.hash.query || {};
   if (!routeName) {
     console.log('There is no path name, check your code');
   }
 
-  var path = JSRouter.getPath(routeName, data, options);
+  path = JSRouter.getPath(routeName, data, query);
   return path;
 });
 

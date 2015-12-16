@@ -6,10 +6,10 @@
       <p>
         {{pluralize votes "Vote"}},
         submitted by {{author}},
-        <a href="{{getPath route='postPage' data=postData}}">{{pluralize commentsCount "comment"}}</a>
-        {{#if ownPost}}<a href="{{getPath route='postEdit' data=postData}}">Edit</a>{{/if}}
+        <a href="{{pathPage}}">{{pluralize commentsCount "comment"}}</a>
+        {{#if ownPost}}<a href="{{getPath 'postEdit' data=postData}}">Edit</a>{{/if}}
       </p>
     </div>
-    <a href="{{getPath route='postPage' data=postData}}" class="discuss btn btn-default">Discuss</a>
+    <a href="{{getPath 'postPage' data=postData}}" class="discuss btn btn-default">Discuss</a>
   </div>
 </template>
