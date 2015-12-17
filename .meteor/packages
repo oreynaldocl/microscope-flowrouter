@@ -26,3 +26,4 @@ audit-argument-checks
 meteorhacks:fast-render
 kadira:blaze-layout
 kadira:flow-router
+arillo:flow-router-helpers

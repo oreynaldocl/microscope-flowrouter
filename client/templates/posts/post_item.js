@@ -14,13 +14,6 @@ Template.postItem.helpers({
     } else {
       return 'disabled';
     }
-  },
-  postData() {
-    return {_id: this._id};
-  },
-  pathPage() {
-    let _id = this._id;
-    return JSRouter.getPath('postPage', {_id});
   }
 });
 
